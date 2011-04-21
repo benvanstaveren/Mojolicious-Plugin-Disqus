@@ -8,9 +8,9 @@ my $builder = Module::Build->new(
     dist_author         => q{Ben van Staveren <madcat@cpan.org>},
     dist_abstract       => 'Access Disqus.com API from your Mojolicious apps',
     dist_version_from   => 'lib/Mojolicious/Plugin/Disqus.pm',
+    configure_requires => { 'Module::Build' => 0.38 },
     build_requires => {
         'Test::More'    => 0,
-        'Test::Mojo'    => 0,
     },
     requires => {
         'Mojolicious'   =>  '1.21',

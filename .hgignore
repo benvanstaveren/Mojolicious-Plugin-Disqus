@@ -13,3 +13,4 @@ pod2htm*.tmp
 Mojolicious-Plugin-Disqus-*
 *.bak
 MYMETA*
+META*

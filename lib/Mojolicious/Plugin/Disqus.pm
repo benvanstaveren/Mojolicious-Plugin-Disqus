@@ -4,7 +4,7 @@ use strict;
 use Mojo::Base 'Mojolicious::Plugin';
 use Net::Disqus;
 
-our $VERSION = '1.05';
+our $VERSION = '1.07';
 
 sub register {
     my ($self, $app, $args) = @_;
@@ -30,7 +30,7 @@ Mojolicious::Plugin::Disqus - Interface with Disqus comments from your Mojolicio
 
 =head1 VERSION
 
-Version 1.05
+Version 1.07
 
 =head1 SYNOPSIS
 

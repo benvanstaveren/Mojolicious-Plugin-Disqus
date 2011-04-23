@@ -4,15 +4,19 @@ use strict;
 use Mojo::Base 'Mojolicious::Plugin';
 use Net::Disqus;
 
-our $VERSION = '0.01';
+our $VERSION = '1.01';
 
 sub register {
     my ($self, $app, $args) = @_;
 
     $args ||= {};
 
-    $app->attr(disqus => sub {
+    $app->attr(_disqus => sub {
         Net::Disqus->new(%$args);
+    });
+    $app->helper(disqus => sub {
+        my $self = shift;
+        $self->_disqus->fetch(@_);
     });
 }
 
@@ -24,7 +28,7 @@ Mojolicious::Plugin::Disqus - Interface with Disqus comments from your Mojolicio
 
 =head1 VERSION
 
-Version 0.01
+Version 1.01
 
 =head1 SYNOPSIS
 
@@ -44,15 +48,14 @@ The following options can be set for the plugin:
     pass_api_errors (optional)  When set, any API errors are returned as a JSON object instead of
                                 throwing an exception.
 
-=head1 METHODS
+=head1 METHODS/HELPERS
 
-For a full list of supported methods, please see L<http://disqus.com/api/docs/>. You can call
-these methods as follows (using /applications/listUsage as an example):
+=head2 disqus(url, %args)
 
-    $app->disqus->applications->listUsage();
-    $app->disqus->fetch('/applications/listUsage');
+    This helper will fetch a Disqus API endpoint by url. %args contains the arguments that need to be passed
+    to the request. This helper is a shortcut for $app->_disqus->fetch(url, %args).
 
-The above two are equivalent. See the L<Net::Disqus> documentation, as well as the Disqus site at L<http://disqus.com/api/docs> for more information.
+    For a full list of supported endpoints, please see L<http://disqus.com/api/docs/>. 
 
 =head1 AUTHOR
 

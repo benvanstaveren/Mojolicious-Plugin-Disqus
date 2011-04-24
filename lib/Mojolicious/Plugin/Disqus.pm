@@ -15,8 +15,7 @@ sub register {
         Net::Disqus->new(%$args);
     });
     $app->helper(disqus => sub {
-        my $self = shift;
-        $self->_disqus->fetch(@_);
+        $app->_disqus()->fetch(@_);
     });
 }
 

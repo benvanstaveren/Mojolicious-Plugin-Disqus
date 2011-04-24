@@ -1,10 +1,8 @@
-package Mojolicious::Plugin::Disqus;
 use warnings;
 use strict;
+package Mojolicious::Plugin::Disqus;
 use Mojo::Base 'Mojolicious::Plugin';
 use Net::Disqus;
-
-our $VERSION = '1.14';
 
 sub register {
     my ($self, $app, $args) = @_;
@@ -27,10 +25,6 @@ __END__
 =head1 NAME
 
 Mojolicious::Plugin::Disqus - Interface with Disqus comments from your Mojolicious app
-
-=head1 VERSION
-
-Version 1.14
 
 =head1 SYNOPSIS
 
@@ -63,15 +57,11 @@ The following options can be set for the plugin:
 
 Ben van Staveren, C<< <madcat at cpan.org> >>
 
-=head1 BUGS
+=head1 BUGS/CONTRIBUTING
 
-Please report any bugs or feature requests through the web interface at L<https://bitbucket.org/xirinet/mojolicious-plugin-disqus/issues>.
-
-=head1 CONTRIBUTING
-
-If you want to contribute changes or otherwise involve yourself in development, feel free to fork the Mercurial repository from
-L<http://bitbucket.org/xirinet/mojolicious-plugin-disqus/> and make pull requests for any patches you have.
-
+Please report any bugs or feature requests through the web interface at L<https://github.com/benvanstaveren/Mojolicious-Plugin-Disqus/issues>.
+If you want to contribute changes or otherwise involve yourself in development, feel free to fork the Git repository from
+L<https://github.com/benvanstaveren/Mojolicious-Plugin-Disqus/> and make pull requests for any patches you have.
 
 =head1 SUPPORT
 

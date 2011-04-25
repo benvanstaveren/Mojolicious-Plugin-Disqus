@@ -11,12 +11,8 @@ sub register {
 
     die __PACKAGE__, ': The "api_secret" argument is required', "\n" unless($args->{api_secret});
 
-    $app->attr(_disqus => sub {
-        Net::Disqus->new(%$args);
-    });
-    $app->helper(disqus => sub {
-        $app->_disqus()->fetch(@_);
-    });
+    $app->attr(_disqus => sub { Net::Disqus->new(%$args); });
+    $app->helper(disqus => sub { return shift->app->_disqus()->fetch(@_); });
 }
 
 1;
